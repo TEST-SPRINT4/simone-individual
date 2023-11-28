@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST | Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="footer/footer.css">
+    <link rel="icon" href="./assets/icon/Icone.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="js/dropdown.js"></script>
+    
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="titulo">T E S T</h1>
+            <ul class="navbar">
+                <li>
+                    <div class="topicos">
+                        <a href="index.html">HOME</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="topicos">
+                        <a href="cadastro_faculdade.html">CADASTRO</a>
+                    </div>
+                </li>
+                <li class="agora">  
+                    <a href="login.html">LOGIN</a>
+                    <!-- <div class="dropdown" id="dropdown">
+                        <div class="hiddenPc"><span class="seta2">▼</span></div>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <a href="index.html">HOME</a>
+                            <a href="cadastro_faculdade.html">CADASTRO</a>
+                            <a href="contato.html">CONTATO</a>
+                            <a href="faq.html">FAQ</a>
+                        </div>
+                    </div> -->
+                </li>   
+
+                <li>
+                    <div class="topicos">
+                        <a href="contato.html">CONTATO</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="topicos">
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+        </div>
+      </div>
+
+    <div class="main-login">
+        <div class="right-login">
+            <div class="bar"></div>
+
+
+            <!-- INICIANDO CARDS FORMULARIO -->
+            <div class="card-login">
+
+                <div class="card-welcome">
+                    <h1>SEJA BEM-VINDO!</h1>
+                    <p>Ainda não possui uma conta?</p>
+                    <p><a href="cadastro_faculdade.html">Clique aqui</a></p>
+
+                </div>
+
+                <div class="card-form">
+                    <!-- INICIANDO CAMPOS DO FORMULARIO -->
+                    <h1 class="title">LOGIN</h1>
+                    <div class="text-field">
+
+                        <label class="label" for="email">EMAIL</label><br>
+                        <input type="text" id="input_email" placeholder=" Digite seu e-mail"><br>
+
+                        <label for="senha">SENHA</label><br>
+                        <input type="password" id="input_senha" placeholder=" Digite sua senha"><br>
+                    </div>
+
+                    <div class="validacao">
+                        *SENHA DE 8 CARACTERES <br>
+                        * NECESSITA 1 OU MAIS CARACTERES ESPECIAIS
+                    </div>
+                    <br>
+
+                    <div class="container-button">
+                        <button onclick="entrar()" class="botao-login">LOGAR <span class="seta">→</span></button>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="Footer">
+        <div class="innerFooter">
+            <div class="informacoes">
+                <div class="logoFooter">
+                    <div class="logoGrande">
+                        <img src="footer/imgs/logoGrande.png" alt="">
+                    </div>
+
+                    <div class="logoSigla">
+                        <img src="footer/imgs/logoSigla.png" alt="">
+                    </div>
+                </div>
+                <div class="informacaoContatos">
+                    <div class="informacao">
+                        <span>Information</span>
+                        <ul>
+                            <li>HOME</li>
+                            <li>CADASTRO</li>
+                            <li>LOGIN</li>
+                            <li>CONTATO</li>
+                            <li>FAQ</li>
+                        </ul>
+                    </div>
+                    <div class="iconContato">
+                        <div class="iconsEnderecoEmail">
+                            <div class="separador"></div>
+                            <img src="footer/imgs/gpsIcon.png" alt="">
+                            <img src="footer/imgs/telIcon.png" alt="">
+                            <img src="footer/imgs/mailIcon.png" alt="">
+                        </div>
+                        <div class="contato">
+                            <span>Contacts</span>
+                            <div class="emailEndereco">
+                                <div class="endereco">
+                                    <span>Rua Haddock Lobo 595</span>
+                                    <span>São Paulo - SP, 01414-905</span>
+                                </div>
+                                <div class="emailTel">
+                                    <u><span>(11) 3589-4043</span></u>
+                                    <span>test@sptech.school</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social">
+                            <div class="spanSocial">
+                                <span>Social Media</span>
+                            </div>
+                            <div class="iconsSocial">
+                                <img src="footer/imgs/git.png" alt="">
+                                <img src="footer/imgs/outlook.png" alt="">
+                                <img src="footer/imgs/Linkedin.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+
+    function entrar() {
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Insira seu email e senha Corretamente!";
+            setTimeout(function () {
+                cardErro.style.display = "none";
+                    }, 4000);
+            finalizarAguardar();
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome_funcionario;
+                    sessionStorage.ID_USUARIO = json.idfuncionario;
+                    sessionStorage.NIVEL_ACESSO = json.fk_nivelAcesso;
+                    sessionStorage.FK_INSTITUICAO = json.fk_instituicao;
+                    sessionStorage.STATUS_FUNCIONARIO = json.status_funcionario; 
+
+                    cardErro.style.display = "block"
+                    mensagem_erro.innerHTML = `Bem vindo de volta ${sessionStorage.NOME_USUARIO}`;
+                    cardErro.style.borderColor = "green";
+
+                    if (sessionStorage.STATUS_FUNCIONARIO == 0) {
+                        cardErro.style.display = "block"
+                        mensagem_erro.innerHTML = "Não foi possível realizar o login com esse usuário";
+                        cardErro.style.borderColor = "red";
+
+                        setTimeout(function () {
+                        location.reload()
+                        }, 4000);
+
+                        return false;
+                    }
+                    else {
+                    setTimeout(function () {
+                        cardErro.style.display = "none"
+                        window.location = "./dashboard/homeDashboard.html";
+                    }, 2000); // apenas para exibir o loading
+                }
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Todos os campos são obrigatórios";
+            setTimeout(function () {
+                cardErro.style.display = "none";
+                    }, 4000);
+            finalizarAguardar();
+            return false;
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>

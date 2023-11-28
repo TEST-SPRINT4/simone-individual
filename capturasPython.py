@@ -20,7 +20,8 @@ while True:
     arquitetura_processador = platform.architecture()[0]
     nucleos_fisicos = psutil.cpu_count(logical=False)
     nucleos_logicos = psutil.cpu_count(logical=True)
-    frequencia = round(psutil.cpu_freq().current, 2)
+    frequencia_hz = psutil.cpu_freq().current
+
     dia = datetime.now()
 
     # SQL para inserir na tabela RegistrosTRUSTED (CPU)
@@ -38,7 +39,7 @@ while True:
     values10 = (nucleos_logicos, dia.strftime('%Y-%m-%d %H:%M:%S'), 10, 1)
 
     sql11 = "INSERT INTO RegistrosTRUSTED (dadosCapturados, dataHora, fkComponente, fkIdservidor) VALUES (%s, %s, %s, %s)"
-    values11 = (frequencia, dia.strftime('%Y-%m-%d %H:%M:%S'), 11, 1)
+    values11 = (frequencia_hz, dia.strftime('%Y-%m-%d %H:%M:%S'), 11, 1)
 
     try:
         # Executa a inserção

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/cadastro_faculdade.js"></script>
+    <link rel="stylesheet" href="css/cadastro_faculdade.css">
+    <link rel="stylesheet" href="footer/footer.css">
+    <link rel="icon" href="./assets/icon/Icone.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="js/dropdown.js"></script>
+    <script src="cadastro_faculdade.js"></script>
+    <title>T E S T | Cadastro Faculdade</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="titulo">T E S T</h1>
+            <ul class="navbar">
+                <li>
+                    <div class="topicos">
+                        <a href="index.html">HOME</a>
+                    </div>
+                </li>
+                <li class="agora">
+                    <a href="cadastro_faculdade.html">CADASTRO</a>
+                    <!-- <div class="dropdown" id="dropdown">
+                        <div class="hiddenPc"><span class="seta2">&#x25BC</span></div>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <a href="index.html">HOME</a>
+                            <a href="login.html">LOGIN</a>
+                            <a href="contato.html">CONTATO</a>
+                            <a href="faq.html">FAQ</a> -->
+                      
+                        </li>
+                        <li>
+                            <div class="topicos">
+                                <a href="login.html">LOGIN</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="topicos">
+                                <a href="contato.html">CONTATO</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="topicos">
+                                <a href="faq.html">FAQ</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- INICIANDO TELA -->
+    <div class="container-cadastro-faculdade">
+        <div class="bar"></div>
+
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+              <span id="mensagem_erro"></span>
+            </div>
+          </div>
+
+
+        <!-- INICIANDO FORMULARIO -->
+        <div class="card-cadastro">
+
+            <div class="banner-cadastro">
+                <h1>CADASTRE-SE</h1>
+            </div>
+
+            <div class="formulario-cadastro">
+                <div class="campo-texto">
+                    <label for="nome">NOME DA INSTITUIÇÃO</label>
+                    <input type="text" id="instituicao_input" placeholder=" Digite o nome da instituição">
+                    <div id="erro_nome"></div>
+                </div>
+
+                <div class="campo-texto">
+                    <label for="nome">NOME DO RESPONSÁVEL</label>
+                    <input type="text" id="responsavel_input" placeholder=" Digite o nome do responsável">
+                    <div id="erro_nome"></div>
+                </div>
+
+                <div class="campo-texto">
+                    <label for="email">EMAIL DO RESPONSÁVEL</label>
+                    <input type="text" id="emailInstituicao_input" placeholder=" Digite o e-mail do responsável">
+                    <div id="erro_email"></div>
+                </div>
+
+                <div class="texto-especial">
+                    <div class="campo-texto-metade">
+                        <label for="cnpj">CNPJ</label>
+                        <input type="text" id="cnpj_input" placeholder=" Digite o CNPJ" size="52"
+                            oninput="formatarCNPJ(this)" maxlength="18">
+                        <div id="erro_cnpj"></div>
+                    </div>
+
+                    <div class="campo-texto-metade">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep_input" oninput="buscarCep(); formatarCEP(this)"
+                            placeholder=" Digite o CEP" maxlength="9">
+                        <div id="erro_cep"></div>
+                    </div>
+                </div>
+
+                <div class="texto-especial">
+                    <div class="campo-texto-metade">
+                        <label for="estado">ESTADO</label>
+                        <input type="text" oninput="buscarCep()" id="estado_input" placeholder=" UF" maxlength="2">
+                        <div id="erro_estado"></div>
+                    </div>
+
+                    <div class="campo-texto-metade">
+                        <label for="cidade">CIDADE</label>
+                        <input type="text" oninput="buscarCep()" id="cidade_input" placeholder=" Digite a cidade"
+                            size="52">
+                        <div id="erro_cidade"></div>
+                    </div>
+                </div>
+
+                <div class="texto-especial">
+                    <div class="campo-texto-metade">
+                        <label for="bairro">BAIRRO</label>
+                        <input type="text" oninput="buscarCep()" id="bairro_input" placeholder=" Digite o bairro"
+                            size="52">
+                        <div id="erro_bairro"></div>
+                    </div>
+
+                    <div class="campo-texto-metade">
+                        <label for="rua">RUA</label>
+                        <input type="text" id="rua_input" oninput="buscarCep()" placeholder=" Digite a rua">
+                        <div id="erro_rua"></div>
+                    </div>
+
+                </div>
+                <div class="campo-texto">
+                    <label for="numero">NÚMERO</label>
+                    <input type="text" id="numero_input" placeholder=" Digite o número">
+                    <div id="erro_numero"></div>
+                </div>
+
+                <div class="campo-texto">
+                    <label for="telefone">TELEFONE</label>
+                    <input type="text" id="telefone_input" placeholder=" Digite um número de telefone válido"
+                        oninput="formatarTELEFONE(this)" maxlength="14">
+                    <div id="erro_telefone"></div>
+                </div>
+
+                <div class="campo-texto">
+                    <label for="senha">SENHA</label>
+                    <input type="password" id="senha_input" placeholder=" Digite uma senha">
+                    <div id="erro_senha"></div>
+                </div>
+
+                <div class="campo-texto">
+                    <label for="confirmar-senha">CONFIRMAR SENHA</label>
+                    <input type="password" id="confirmacao_senha_input" placeholder=" Digite a senha novamente">
+                    <div id="erro_confirmar_senha"></div>
+                </div>
+
+                <div class="botao-container">
+                    <button onclick="cadastrar()" class="botao-cadastro">CADASTRAR<span class="seta">→</span></button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="Footer">
+        <div class="innerFooter">
+            <div class="informacoes">
+                <div class="logoFooter">
+                    <div class="logoGrande">
+                        <img src="footer/imgs/logoGrande.png" alt="">
+                    </div>
+
+                    <div class="logoSigla">
+                        <img src="footer/imgs/logoSigla.png" alt="">
+                    </div>
+                </div>
+                <div class="informacaoContatos">
+                    <div class="informacao">
+                        <span>Information</span>
+                        <ul>
+                            <li>HOME</li>
+                            <li>CADASTRO</li>
+                            <li>LOGIN</li>
+                            <li>CONTATO</li>
+                            <li>FAQ</li>
+                        </ul>
+                    </div>
+                    <div class="iconContato">
+                        <div class="iconsEnderecoEmail">
+                            <div class="separador"></div>
+                            <img src="footer/imgs/gpsIcon.png" alt="">
+                            <img src="footer/imgs/telIcon.png" alt="">
+                            <img src="footer/imgs/mailIcon.png" alt="">
+                        </div>
+                        <div class="contato">
+                            <span>Contacts</span>
+                            <div class="emailEndereco">
+                                <div class="endereco">
+                                    <span>Rua Haddock Lobo 595</span>
+                                    <span>São Paulo - SP, 01414-905</span>
+                                </div>
+                                <div class="emailTel">
+                                    <u><span>(11) 3589-4043</span></u>
+                                    <span>test@sptech.school</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <div class="spanSocial">
+                            <span>Social Media</span>
+                        </div>
+                        <div class="iconsSocial">
+                            <img src="footer/imgs/git.png" alt="">
+                            <img src="footer/imgs/outlook.png" alt="">
+                            <img src="footer/imgs/Linkedin.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+</html>
